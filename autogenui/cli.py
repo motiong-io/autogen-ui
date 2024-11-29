@@ -8,7 +8,7 @@ app = typer.Typer(invoke_without_command=True)
 
 @app.callback()
 def main(
-    host: str = "127.0.0.1",
+    host: str = "0.0.0.0",
     port: int = 8081,
     workers: int = 1,
     reload: Annotated[bool, typer.Option("--reload")] = True,

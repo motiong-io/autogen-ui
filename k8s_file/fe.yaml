@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: autogen-ui-fe
+  namespace: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: autogen-ui-fe
+  template:
+    metadata:
+      labels:
+        app: autogen-ui-fe
+    spec:
+      imagePullSecrets:
+      - name: motiong-registry-key
+      containers:
+      - name: autogen-ui-fe
+        image: motiongcloud.azurecr.io/zz-autogen-fe:0.0.4
+        ports:
+        - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: autogen-ui-fe
+  namespace: dev
+spec:
+  selector:
+    app: autogen-ui-fe
+  ports:
+    - protocol: TCP
+      port: 3000
+      name: http
+      targetPort: 3000
+  type: LoadBalancer
