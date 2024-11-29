@@ -17,7 +17,7 @@ spec:
       - name: motiong-registry-key
       containers:
       - name: autogen-ui-be
-        image: motiongcloud.azurecr.io/zz-autogen-be:0.0.4
+        image: motiongcloud.azurecr.io/zz-autogen-be:0.0.5
         ports:
         - containerPort: 8081
 ---
