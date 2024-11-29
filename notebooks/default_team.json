@@ -2,19 +2,26 @@
   "name": "weather_team",
   "participants": [
     {
-      "name": "writing_agent",
+      "name": "general_help_agent1",
       "model_client": {
         "model": "gpt-4o-2024-08-06",
         "model_type": "OpenAIChatCompletionClient"
       },
       "tools": [
-        {
-          "name": "get_weather",
-          "description": "Get the weather for a city",
-          "content": "async def get_weather(city: str) -> str:\n    return f\"The weather in {city} is 73 degrees and Sunny.\""
-        }
       ],
-      "agent_type": "AssistantAgent"
+      "agent_type": "AssistantAgent",
+      "system_message": "You are a general help agent. You can help with a variety of topics. Reply with 'TERMINATE' when the task has been completed."
+    },
+    {
+      "name": "general_help_agent2",
+      "model_client": {
+        "model": "gpt-4o-2024-08-06",
+        "model_type": "OpenAIChatCompletionClient"
+      },
+      "tools": [
+      ],
+      "agent_type": "AssistantAgent",
+      "system_message": "You are a general help agent. You can help with a variety of topics. Reply with 'TERMINATE' when the task has been completed."
     }
   ],
   "termination_condition": {
